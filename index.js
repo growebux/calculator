@@ -21,9 +21,8 @@ function getNumbers() {
 }
 
 function updateNumber() {
-  this.input = this.displayInput
   const displayInput = document.getElementById('input')
-  displayInput.innerHTML = this.displayInput
+  displayInput.innerHTML = 0
 }
 
 function bindClickEvents() {
