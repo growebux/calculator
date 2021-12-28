@@ -3,7 +3,7 @@ class Calculator {
     this.value = 0
     this.currentNumber = ''
     this.previousNumber = ''
-    this.operator = ''
+    this.operation = ''
   }
 
   appendNumber(value) {
@@ -14,14 +14,19 @@ class Calculator {
 
   clear() {
     this.currentNumber = ''
-    this.value = ''
+    this.previousNumber = ''
     this.operation = undefined
   }
 
-  display(operation) {
-    this.currentNumber = currentNumber
-    this.previousOperator = this.operator
-    this.operator
+  chooseOperation(operation) {
+    this.operation = operation
+    this.previousNumber = this.currentNumber
+    this.currentNumber = ''
+  }
+
+  displayUpdate() {
+    this.currentNumber = this.currentNumber
+    this.currentNumber = this.previousNumber
   }
 }
 
@@ -51,7 +56,7 @@ function bindClickEventsOperator() {
   const _calculator = new Calculator()
   getOperator().forEach((button) => {
     button.addEventListener('click', () => {
-      _calculator.appendNumber(button.innerText)
+      _calculator.chooseOperation(button.innerText)
     })
   })
 }
