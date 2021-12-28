@@ -1,8 +1,14 @@
-function calculator() {
-  return constructor(previousOperand, currentOperand)
-  this.previousOperand = currentOperand
-  this.currentOperand = currentOperand
-  this.clear
+class Calculator {
+  constructor(previousOperand, currentOperand) {
+    this.previousOperand = currentOperand
+    this.currentOperand = currentOperand
+    this.clear
+  }
+
+  appendNumber(value) {
+    this.currentOperand = value
+    console.log(value)
+  }
 }
 
 function clear() {
@@ -13,10 +19,6 @@ function clear() {
 
 function deleteNumber() {}
 
-function appendNumber(number) {
-  this.currentOperand = number
-}
-
 function chooseOperation(operation) {}
 
 function compute() {}
@@ -25,40 +27,39 @@ function updateDisplay() {
   this.currentOperand.innerText = this.currentOperand
 }
 
-function numberButtons() {
-  return document.getElementById('[data-number]')
-  
+function getNumbers() {
+  return document.querySelectorAll('data-number')
 }
 
 function operationButtons() {
-  return document.getElementById('[data-operation]')
+  return document.querySelector('[data-operation]').innerText
 }
 function equalsButton() {
-  return document.querySelector('[data-equals]')
+  return document.querySelector('[data-equals]').innerText
 }
 function deleteButton() {
-  return document.querySelector('[data-delete]')
+  return document.querySelector('[data-delete]').innerText
 }
 function allClearButtons() {
-  return document.querySelector('[data-all-clear]')
+  return document.querySelector('[data-all-clear]').innerText
 }
 function previousOperand() {
-  return document.querySelector('[data-previous-operand]')
+  return document.querySelector('[data-previous-operand]').innerText
 }
 function currentOperand() {
-  return document.querySelector('[data-current-operand]')
+  return document.querySelector('[data-current-operand]').innerText
 }
 
-function calculator() {
-  return new calculator(previousOperand, currentOperand)
-}
+// function calculator() {
+//   return new calculator(previousOperand, currentOperand)
+// }
 
-function numberButtons() {
-  return numberButtons.forEach((button => {
+function bindClickEvents() {
+  getNumbers().forEach((button) => {
     button.addEventListener('click', () => {
-      calculator.appendNumber(button.innerText)
-      calculator.updateDisplay()
+      const _calculator = new Calculator()
+      _calculator.appendNumber(button.innerText)
+      _calculator.updateDisplay()
     })
-  }))
+  })
 }
-
