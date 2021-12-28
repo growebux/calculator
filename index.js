@@ -2,7 +2,8 @@ class Calculator {
   constructor() {
     this.value = 0
     this.input = ''
-    this.displayInput = 0
+    this.total = ''
+    this.operator = ''
   }
 
   appendNumber(value) {
@@ -10,6 +11,13 @@ class Calculator {
     const currentInput = document.getElementById('input')
     currentInput.innerHTML = this.input
   }
+
+  appendNumberAndOperator(total) {
+    this.total = this.total + this.getOperation
+    const previusTotal = document.getElementById('total')
+    previusTotal.innerHTML = this.input
+  }
+
   clear() {
     this.input = ''
     this.value = ''
@@ -20,7 +28,11 @@ function getNumbers() {
   return document.querySelectorAll('.data-number')
 }
 
-function updateNumber() {
+function getOperation() {
+  return document.querySelectorAll('.data-operation')
+}
+
+function initDisplay() {
   const displayInput = document.getElementById('input')
   displayInput.innerHTML = 0
 }
@@ -34,5 +46,5 @@ function bindClickEvents() {
   })
 }
 
-updateNumber()
+initDisplay()
 bindClickEvents()
