@@ -1,25 +1,18 @@
 class Calculator {
   constructor() {
     this.value = 0
-    this.input = ''
-    this.total = ''
-    this.operator = ''
+    this.currentNumber = ''
+    this.previousNumber = ''
   }
 
   appendNumber(value) {
-    this.input = this.input + value
-    const currentInput = document.getElementById('input')
-    currentInput.innerHTML = this.input
-  }
-
-  appendNumberAndOperator(total) {
-    this.total = this.total + this.getOperation
-    const previusTotal = document.getElementById('total')
-    previusTotal.innerHTML = this.input
+    this.currentNumber = this.currentNumber + value
+    const currentInputNumber = document.getElementById('input')
+    currentInputNumber.innerHTML = this.currentNumber
   }
 
   clear() {
-    this.input = ''
+    this.currentNumber = ''
     this.value = ''
     this.operation = undefined
   }
@@ -28,7 +21,7 @@ function getNumbers() {
   return document.querySelectorAll('.data-number')
 }
 
-function getOperation() {
+function getOperator() {
   return document.querySelectorAll('.data-operation')
 }
 
@@ -46,5 +39,14 @@ function bindClickEvents() {
   })
 }
 
+function bindClickEventsOperator() {
+  const _calculator = new Calculator()
+  getOperator().forEach((button) => {
+    button.addEventListener('click', () => {
+      _calculator.appendNumber(button.innerText)
+    })
+  })
+}
 initDisplay()
 bindClickEvents()
+bindClickEventsOperator()
