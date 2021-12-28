@@ -32,7 +32,10 @@ button:hover{
     background-color: aliceblue;
 }
 
-.span-two{
+.data-all-clear{
+    grid-column: span 2;
+}
+.data-equals{
     grid-column: span 2;
 }
 
