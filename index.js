@@ -1,38 +1,61 @@
-class Calculator {
-    constructor(previousOperationNumber, currentOperationNumber){
-        this.previousOperationNumber = previousOperationNumber
-        this.currentOperationNumber = currentOperationNumber
-    }
-clear(){
-
+function calculator() {
+  return constructor(previousOperationNumber, currentOperationNumber)
+  this.previousOperationNumber = previousOperationNumber
+  this.currentOperationNumber = currentOperationNumber
+  this.clear
 }
 
-delete(){
-
+function clear() {
+  this.currentOperationNumber = ''
+  this.previousOperand = ''
+  this.operationOperand = undefined
 }
 
-appendNumber(number){
+function deleteTheNumber() {}
 
+function appendNumber(number) {
+  this.currentOperand = number
 }
 
-chooseOperations(operation){
+function chooseOperations(operation) {}
 
+function compute() {}
+function updateDisplay() {
+  this.currentOperandTextElement.innerText = this.currentOperand
 }
 
-compute(){
-
-}
-updateDisplay(){
-    
+function numberButtons() {
+  return document.getElementById('[data-number]')
 }
 
+function operationButtons() {
+  return document.getElementById('[data-operation]')
+}
+function equalsButton() {
+  return document.querySelector('[data-equals]')
+}
+function deleteButton() {
+  return document.querySelector('[data-delete]')
+}
+function allClearButtons() {
+  return document.querySelector('[data-all-clear]')
+}
+function previousOperand() {
+  return document.querySelector('[data-previous-operand]')
+}
+function currentOperand() {
+  return document.querySelector('[data-current-operand]')
 }
 
+function calculator() {
+  return new calculator(previousOperationNumber, currentOperationNumber)
+}
 
-const numberButtons = document.getElementById('[data-number]')
-const operationButtons = document.getElementById('[data-operation]')
-const equalsButton = document.querySelector('[data-equals]')
-const deleteButton= document.querySelector('[data-delete]')
-const allClearButtons = document.querySelector('[data-all-clear]')
-const previousOperationNumber = document.querySelector('[data-previous-operand]')
-const currentOperationNumber = document.querySelector('[data-current-operand]')
+function numberButtons() {
+  return numberButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      calculator.appendNumber(button.innerText)
+      calculator.updateDisplay()
+    })
+  })
+}
