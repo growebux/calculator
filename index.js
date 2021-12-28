@@ -1,31 +1,33 @@
 function calculator() {
-  return constructor(previousOperationNumber, currentOperationNumber)
-  this.previousOperationNumber = previousOperationNumber
-  this.currentOperationNumber = currentOperationNumber
+  return constructor(previousOperand, currentOperand)
+  this.previousOperand = currentOperand
+  this.currentOperand = currentOperand
   this.clear
 }
 
 function clear() {
-  this.currentOperationNumber = ''
+  this.currentOperand = ''
   this.previousOperand = ''
-  this.operationOperand = undefined
+  this.operation = undefined
 }
 
-function deleteTheNumber() {}
+function deleteNumber() {}
 
 function appendNumber(number) {
   this.currentOperand = number
 }
 
-function chooseOperations(operation) {}
+function chooseOperation(operation) {}
 
 function compute() {}
+
 function updateDisplay() {
-  this.currentOperandTextElement.innerText = this.currentOperand
+  this.currentOperand.innerText = this.currentOperand
 }
 
 function numberButtons() {
   return document.getElementById('[data-number]')
+  
 }
 
 function operationButtons() {
@@ -48,14 +50,15 @@ function currentOperand() {
 }
 
 function calculator() {
-  return new calculator(previousOperationNumber, currentOperationNumber)
+  return new calculator(previousOperand, currentOperand)
 }
 
 function numberButtons() {
-  return numberButtons.forEach((button) => {
+  return numberButtons.forEach((button => {
     button.addEventListener('click', () => {
       calculator.appendNumber(button.innerText)
       calculator.updateDisplay()
     })
-  })
+  }))
 }
+
