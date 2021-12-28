@@ -3,11 +3,12 @@ class Calculator {
     this.value = 0
     this.currentNumber = ''
     this.previousNumber = ''
+    this.operator = ''
   }
 
   appendNumber(value) {
     this.currentNumber = this.currentNumber + value
-    const currentInputNumber = document.getElementById('input')
+    const currentInputNumber = document.getElementById('currentNumber')
     currentInputNumber.innerHTML = this.currentNumber
   }
 
@@ -16,7 +17,14 @@ class Calculator {
     this.value = ''
     this.operation = undefined
   }
+
+  display(operation) {
+    this.currentNumber = currentNumber
+    this.previousOperator = this.operator
+    this.operator
+  }
 }
+
 function getNumbers() {
   return document.querySelectorAll('.data-number')
 }
@@ -26,7 +34,7 @@ function getOperator() {
 }
 
 function initDisplay() {
-  const displayInput = document.getElementById('input')
+  const displayInput = document.getElementById('currentNumber')
   displayInput.innerHTML = 0
 }
 
@@ -47,6 +55,7 @@ function bindClickEventsOperator() {
     })
   })
 }
+
 initDisplay()
 bindClickEvents()
 bindClickEventsOperator()
